@@ -14,7 +14,7 @@ const Navbar = () => {
       <NavLink
         to="/"
         className={({ isActive }) =>
-          `px-4 py-2 md:text-sm lg:text-md font-semibold rounded-lg mr-2 ${isActive ? 'bg-teal-600 text-white' : 'bg-transparent dark:text-gray-200'
+          `px-4 py-2 md:text-sm lg:text-md font-semibold rounded-lg mr-2 ${isActive ? 'bg-blue-600 text-white' : 'bg-transparent dark:text-gray-200'
           }`
         }
       >
@@ -23,7 +23,7 @@ const Navbar = () => {
       <NavLink
         to="/campaigns"
         className={({ isActive }) =>
-          `px-4 py-2 md:text-sm lg:text-md font-semibold rounded-lg mr-2 ${isActive ? 'bg-teal-600 text-white' : 'bg-transparent dark:text-gray-200'
+          `px-4 py-2 md:text-sm lg:text-md font-semibold rounded-lg mr-2 ${isActive ? 'bg-blue-600 text-white' : 'bg-transparent dark:text-gray-200'
           }`
         }
       >
@@ -33,7 +33,7 @@ const Navbar = () => {
         <NavLink
           to="/add-campaign"
           className={({ isActive }) =>
-            `px-4 py-2 md:text-sm lg:text-md font-semibold rounded-lg mr-2 ${isActive ? 'bg-teal-600 text-white' : 'bg-transparent dark:text-gray-200'
+            `px-4 py-2 md:text-sm lg:text-md font-semibold rounded-lg mr-2 ${isActive ? 'bg-blue-600 text-white' : 'bg-transparent dark:text-gray-200'
             }`
           }
         >
@@ -44,7 +44,7 @@ const Navbar = () => {
         <NavLink
           to="/my-campaigns"
           className={({ isActive }) =>
-            `px-4 py-2 md:text-sm lg:text-md font-semibold rounded-lg mr-2 ${isActive ? 'bg-teal-600 text-white' : 'bg-transparent dark:text-gray-200'
+            `px-4 py-2 md:text-sm lg:text-md font-semibold rounded-lg mr-2 ${isActive ? 'bg-blue-600 text-white' : 'bg-transparent dark:text-gray-200'
             }`
           }
         >
@@ -55,7 +55,7 @@ const Navbar = () => {
         <NavLink
           to="/my-donations"
           className={({ isActive }) =>
-            `px-4 py-2 md:text-sm lg:text-md font-semibold rounded-lg mr-2 ${isActive ? 'bg-teal-600 text-white' : 'bg-transparent dark:text-gray-200'
+            `px-4 py-2 md:text-sm lg:text-md font-semibold rounded-lg mr-2 ${isActive ? 'bg-blue-600 text-white' : 'bg-transparent dark:text-gray-200'
             }`
           }
         >
@@ -93,7 +93,7 @@ const Navbar = () => {
             </div>
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content bg-base-100 dark:bg-gray-800 dark:text-gray-200 rounded-box z-[1] mt-3 w-52 p-2 shadow"
+              className="menu menu-sm dropdown-content bg-base-100 dark:bg-gray-800 dark:text-gray-200 rounded-box z-[1] mt-3 w-52 p-2 shadow outfit"
             >
               {links}
             </ul>
@@ -105,8 +105,8 @@ const Navbar = () => {
             <span>
               {/* <img className="w-12 h-12 hidden md:block" src={logo} alt="" /> */}
             </span>
-            <span className="text-teal-700 dark:text-teal-500">
-              CrowdHex
+            <span className="text-blue-700 dark:text-blue-500 outfit">
+              Jobify
             </span>
           </h2>
         </div>
@@ -118,7 +118,7 @@ const Navbar = () => {
             <NavLink
               to={user ? "/profile" : "/register"}
               className={({ isActive }) =>
-                `px-4 py-2 md:text-sm lg:text-md font-semibold rounded-lg ${isActive ? 'bg-teal-600 text-white' : 'bg-transparent dark:text-gray-200'
+                `px-4 py-2 md:text-sm lg:text-md font-semibold rounded-lg ${isActive ? 'bg-blue-600 text-white' : 'bg-transparent dark:text-gray-200'
                 }`
               }>
               {user ? "My Profile" : "Register"}
@@ -129,7 +129,7 @@ const Navbar = () => {
             user ? <ProfileTooltip img={user.displayURL} name={user.displayName} email={user.email} /> : <NavLink
               to="/login"
               className={({ isActive }) =>
-                `px-4 py-2 md:text-sm lg:text-md font-semibold rounded-lg ${isActive ? 'bg-teal-600 text-white' : 'bg-transparent dark:text-gray-200'
+                `px-4 py-2 md:text-sm lg:text-md font-semibold rounded-lg ${isActive ? 'bg-blue-600 text-white' : 'bg-transparent dark:text-gray-200'
                 }`
               }>
               Login
