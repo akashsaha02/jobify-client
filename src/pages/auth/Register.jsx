@@ -7,7 +7,7 @@ import { AuthContext } from '../../providers/AuthProvider';
 import toast from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
-import Lottie  from "lottie-react";
+import Lottie from "lottie-react";
 import ufo from '../../assets/lottie-files/ufo.json'
 
 const Register = () => {
@@ -49,11 +49,7 @@ const Register = () => {
         // Create user using Auth Provider
         createUser(formData.email, formData.password)
             .then(() => {
-                // send email verification address
-                sendEmailVerification(auth.currentUser)
-                    .then(() => {
-                        setVerificationMessage("Verification email sent");
-                    });
+
                 // update user profile
                 updateProfile(auth.currentUser, {
                     displayName: formData.username,
@@ -68,8 +64,15 @@ const Register = () => {
                     .catch(error => {
                         toast.error('Error logging out:', error.code, error.message);
                     });
-
+                // send email verification address
                 setSuccess(true);
+                toast.success('User registered successfully!');
+                sendEmailVerification(auth.currentUser)
+                    .then(() => {
+                        setVerificationMessage("Verification email sent");
+                        toast.success("Verification email sent, Please verify your email address");
+                    });
+
                 setFormData({
                     username: '',
                     photoUrl: '',
@@ -77,7 +80,6 @@ const Register = () => {
                     password: '',
                 }); // Reset form data
                 e.target.reset();
-                toast.success('User registered successfully!');
 
             }).catch(error => {
                 setErrorMessage(errorMessage);
@@ -90,7 +92,10 @@ const Register = () => {
         setShowPassword(!showPassword);
     };
 
-    verificationMessage && toast.success("Verification email sent, Please verify your email address");
+    success ? toast.success('User registered successfully!') : null;
+    errorMessage ? toast.error('Error registering user!', errorMessage) : null;
+    verificationMessage ? toast.success("Verification email sent, Please verify your email address"): null;
+
 
     return (
         <div className="min-h-screen flex justify-center items-center dark:bg-gray-900">
@@ -117,7 +122,7 @@ const Register = () => {
                     onClick={() => handleGoogleSignIn()}
                     className="w-full flex justify-center rounded items-center gap-2 px-4 py-2 text-md font-medium dark:text-white border focus:outline-none focus:ring-2 focus:ring-blue-400"
                 >
-                    <span className="text-xl"><FcGoogle/></span>
+                    <span className="text-xl"><FcGoogle /></span>
                     <p className="text-gray-800 dark:text-white">Login with Google</p>
                 </button>
                 <div className="divider text-sm" >Or Continue With</div>
