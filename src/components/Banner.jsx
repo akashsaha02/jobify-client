@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 const Banner = () => {
     return (
         <section className="bg-blue-50 dark:bg-gray-800">
-            <div className="max-w-7xl mx-auto px-4 py-16 lg:py-20 grid grid-cols-1 md:grid-cols-2 items-center lg:justify-between">
+            <div className="container mx-auto px-4 py-16 lg:py-20 grid grid-cols-1 md:grid-cols-2 items-center lg:justify-between">
                 {/* Left Content */}
                 <div className=" max-w-2xl">
                     <h1 className="text-4xl lg:text-6xl font-bold leading-tight max-w-xl">
