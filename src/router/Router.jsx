@@ -5,8 +5,16 @@ import Layout from "../Layout/Layout";
 import Home from './../pages/Home/Home';
 import Register from "../pages/auth/Register";
 import Login from "../pages/auth/Login";
-import Alljobs from "../pages/private/Alljobs";
-import AddJobs from "../pages/private/AddJobs";
+import Alljobs from "../pages/private/Jobs/Alljobs";
+import AddJobs from "../pages/private/Jobs/AddJobs";
+import JobDetails from "../pages/private/Jobs/JobDetails";
+import Application from './../pages/private/Application/Application';
+import MyApplication from './../pages/private/Application/MyApplication';
+import MyJobs from './../pages/private/Jobs/MyJobs';
+import ReviewApplication from './../pages/private/Application/ReviewApplication';
+import UpdateJob from './../pages/private/Jobs/UpdateJob';
+import PrivateRoute from "./PrivateRoute";
+const apiBaseUrl = import.meta.env.VITE_API_URL;
 
 const router = createBrowserRouter([
     {
@@ -28,10 +36,38 @@ const router = createBrowserRouter([
             },
             {
                 path: "/jobs",
-                element: <Alljobs/>
-            },{
+                element: <Alljobs />
+            },
+            {
                 path: "/add-jobs",
-                element:<AddJobs/>
+                element: <AddJobs />
+            },
+            {
+                path: "/jobs/details/:id",
+                element: <PrivateRoute>
+                    <JobDetails />
+                </PrivateRoute>,
+                loader: ({ params }) => fetch(`${apiBaseUrl}/jobs/${params.id}`).then(res => res.json())
+            },
+            {
+                path: "/application/apply/:id",
+                element: <Application />
+            },
+            {
+                path: "/application/me",
+                element: <MyApplication />
+            },
+            {
+                path: "/my-jobs",
+                element: <MyJobs />
+            },
+            {
+                path: "/my-jobs/:id",
+                element: <ReviewApplication />
+            },
+            {
+                path: "/jobs/update/:id",
+                element: <UpdateJob />
             }
         ]
     },

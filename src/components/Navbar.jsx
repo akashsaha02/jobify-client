@@ -31,7 +31,7 @@ const Navbar = () => {
       </NavLink>
       {user && (
         <NavLink
-          to="/add-campaign"
+          to="/add-jobs"
           className={({ isActive }) =>
             `px-4 py-2 md:text-sm lg:text-md font-semibold rounded-lg mr-2 ${isActive ? 'bg-blue-600 text-white' : 'bg-transparent dark:text-gray-200'
             }`
@@ -72,7 +72,7 @@ const Navbar = () => {
 
   return (
     <div className="bg-white dark:bg-gray-900 sticky top-0 z-20 shadow-md dark:shadow-gray-700 py-2">
-      <div className="navbar max-w-[1400px] mx-auto">
+      <div className="navbar max-w-7xl mx-auto">
         <div className="navbar-start items-center">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="lg:hidden btn btn-sm btn-ghost">

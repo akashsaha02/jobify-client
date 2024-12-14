@@ -1,14 +1,16 @@
 import React from 'react'
-import { Outlet } from 'react-router-dom'
+import Banner from '../../components/Banner'
+import JobsOTD from '../../components/JobsOTD'
 
 const Home = () => {
     return (
         <div>
-            <h1 className="text-white">Home</h1>
             {/* Banner */}
+            <Banner />
             {/* Category */}
             {/* Add */}
             {/* Jobs of the day */}
+            <JobsOTD />
             {/* Select Jobs */}
             {/* Impact */}
             {/* Top Recruiters */}

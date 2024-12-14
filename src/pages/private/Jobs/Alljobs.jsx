@@ -3,14 +3,14 @@ import axios from 'axios';
 import { FaDollarSign, FaMapMarkerAlt } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 
-const apiUrl = import.meta.env.VITE_API_URL;
+const apiBaseUrl = import.meta.env.VITE_API_URL;
 
 const Alljobs = () => {
     const [allJobs, setAllJobs] = useState([]);
 
     useEffect(() => {
         axios
-            .get(`${apiUrl}/jobs`)
+            .get(`${apiBaseUrl}/jobs`)
             .then((response) => {
                 setAllJobs(response.data);
             })
@@ -20,10 +20,10 @@ const Alljobs = () => {
     }, []); // Only run once on component mount
 
     return (
-        <div className="max-w-[1400px] mx-auto">
+        <div className="max-w-7xl mx-auto px-4">
             <h1>All Jobs ({allJobs.length})</h1>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols- lg:grid-cols-3 xl:grid-cols-4 gap-4">
                 {allJobs.map((job) => (
                     <div key={job._id} className="card card-compact bg-base-100 shadow-xl">
                         <div className="flex gap-2 m-2">
@@ -60,7 +60,7 @@ const Alljobs = () => {
                                     {job.salaryRange?.min || 0} - {job.salaryRange?.max || 0}{' '}
                                     {job.salaryRange?.currency || ''}
                                 </p>
-                                <Link to={`/jobs/${job._id}`}>
+                                <Link to={`/jobs/details/${job._id}`}>
                                     <button className="btn btn-primary">Apply</button>
                                 </Link>
                             </div>
