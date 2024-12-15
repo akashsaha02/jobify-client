@@ -42,13 +42,13 @@ const Navbar = () => {
       )}
       {user && (
         <NavLink
-          to="/my-campaigns"
+          to="/my-jobs"
           className={({ isActive }) =>
             `px-4 py-2 md:text-sm lg:text-md font-semibold rounded-lg mr-2 ${isActive ? 'bg-blue-600 text-white' : 'bg-transparent dark:text-gray-200'
             }`
           }
         >
-          My Campaigns
+          My Jobs
         </NavLink>
       )}
       {user && (
