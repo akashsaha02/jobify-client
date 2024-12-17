@@ -14,6 +14,7 @@ import MyJobs from './../pages/private/Jobs/MyJobs';
 import ReviewApplication from './../pages/private/Application/ReviewApplication';
 import UpdateJob from './../pages/private/Jobs/UpdateJob';
 import PrivateRoute from "./PrivateRoute";
+import Profile from "../pages/auth/Profile";
 const apiBaseUrl = import.meta.env.VITE_API_URL;
 
 const router = createBrowserRouter([
@@ -39,8 +40,16 @@ const router = createBrowserRouter([
                 element: <Alljobs />
             },
             {
+                path: "/profile",
+                element: <PrivateRoute>
+                    <Profile />
+                </PrivateRoute>
+            }, 
+            {
                 path: "/add-jobs",
-                element: <AddJobs />
+                element: <PrivateRoute>
+                    <AddJobs />
+                </PrivateRoute>
             },
             {
                 path: "/jobs/details/:id",
@@ -51,19 +60,27 @@ const router = createBrowserRouter([
             },
             {
                 path: "/application/apply/:id",
-                element: <Application />
+                element: <PrivateRoute >
+                    <Application />
+                </PrivateRoute>
             },
             {
                 path: "/application/me",
-                element: <MyApplication />
+                element: <PrivateRoute>
+                    <MyApplication />
+                </PrivateRoute>
             },
             {
                 path: "/my-jobs",
-                element: <MyJobs />
+                element: <PrivateRoute>
+                    <MyJobs />
+                </PrivateRoute>
             },
             {
                 path: "/my-jobs/:id",
-                element: <ReviewApplication />
+                element: <PrivateRoute>
+                    <ReviewApplication />
+                </PrivateRoute>
             },
             {
                 path: "/jobs/update/:id",
