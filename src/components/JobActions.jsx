@@ -7,7 +7,7 @@ const JobActions = ({ onEdit, onDelete }) => {
       <button onClick={onEdit} className="btn btn-primary btn-sm">
         Edit
       </button>
-      <button onClick={onDelete} className="btn btn-danger btn-sm">
+      <button onClick={onDelete} className="btn btn-error btn-sm">
         Delete
       </button>
     </div>

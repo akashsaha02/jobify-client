@@ -37,7 +37,7 @@ const Navbar = () => {
             }`
           }
         >
-          Add Campaign
+          Add Job
         </NavLink>
       )}
       {user && (
@@ -48,7 +48,7 @@ const Navbar = () => {
             }`
           }
         >
-          My Jobs
+          My Job Posts
         </NavLink>
       )}
       {user && (

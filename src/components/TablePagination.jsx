@@ -7,7 +7,7 @@ const TablePagination = ({ table }) => {
       <button
         onClick={() => table.previousPage()}
         disabled={!table.getCanPreviousPage()}
-        className="btn btn-sm"
+        className="btn btn-sm btn-primary"
       >
         « Prev
       </button>
@@ -17,7 +17,7 @@ const TablePagination = ({ table }) => {
       <button
         onClick={() => table.nextPage()}
         disabled={!table.getCanNextPage()}
-        className="btn btn-sm"
+        className="btn btn-sm btn-primary"
       >
         Next »
       </button>

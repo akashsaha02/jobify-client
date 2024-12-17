@@ -21,11 +21,11 @@ const AddJobs = () => {
         company: '',
         location: '',
         salaryRange: {
-            min: 0,
-            max: 0,
+            min: "",
+            max: "",
             currency: 'BDT'
         },
-        applicationDeadline: '',
+        applicationDeadline: ''|| new Date().toISOString().split('T')[0],
         requirements: '',
         responsibilities: '',
         hr_email: user?.email || '',

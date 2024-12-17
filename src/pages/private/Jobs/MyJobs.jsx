@@ -78,7 +78,7 @@ const MyJobs = () => {
   return (
     <div className="container mx-auto px-4">
       <div className="my-8">
-        <SectionTitle title="My Jobs" subtitle="My Added Jobs" />
+        <SectionTitle title="My Job Posts" subtitle="My Added Jobs" />
       </div>
       <JobTable table={table} handleEdit={handleEdit} handleDelete={handleDelete} />
     </div>
