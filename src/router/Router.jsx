@@ -8,13 +8,13 @@ import Login from "../pages/auth/Login";
 import Alljobs from "../pages/private/Jobs/Alljobs";
 import AddJobs from "../pages/private/Jobs/AddJobs";
 import JobDetails from "../pages/private/Jobs/JobDetails";
-import Application from './../pages/private/Application/Application';
 import MyApplication from './../pages/private/Application/MyApplication';
 import MyJobs from './../pages/private/Jobs/MyJobs';
 import ReviewApplication from './../pages/private/Application/ReviewApplication';
 import UpdateJob from './../pages/private/Jobs/UpdateJob';
 import PrivateRoute from "./PrivateRoute";
 import Profile from "../pages/auth/Profile";
+import ApplyJob from "../pages/private/Application/ApplyJob";
 const apiBaseUrl = import.meta.env.VITE_API_URL;
 
 const router = createBrowserRouter([
@@ -61,14 +61,15 @@ const router = createBrowserRouter([
             {
                 path: "/application/apply/:id",
                 element: <PrivateRoute >
-                    <Application />
-                </PrivateRoute>
+                    <ApplyJob />
+                </PrivateRoute>,
+                loader: ({ params }) => fetch(`${apiBaseUrl}/jobs/${params.id}`)
             },
             {
                 path: "/application/me",
                 element: <PrivateRoute>
                     <MyApplication />
-                </PrivateRoute>
+                </PrivateRoute>,
             },
             {
                 path: "/my-jobs",

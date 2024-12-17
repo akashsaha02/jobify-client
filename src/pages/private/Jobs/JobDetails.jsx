@@ -1,12 +1,14 @@
 import { FaMapMarkerAlt, FaBriefcase, FaCalendarAlt, FaDollarSign, FaUserTie } from 'react-icons/fa';
-import { useLoaderData } from 'react-router-dom';
+import { useLoaderData, useNavigate } from 'react-router-dom';
+
 
 const JobDetails = () => {
+  const navigate = useNavigate();
   const job = useLoaderData();
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-900 flex justify-center py-10">
-      <div className="w-full max-w-4xl bg-indigo-50 dark:from-gray-800 dark:to-gray-700 shadow-md rounded-lg p-8">
+    <div className="min-h-screen dark:bg-gray-900 flex justify-center py-10">
+      <div className="w-full max-w-4xl bg-gray-50 dark:from-gray-800 dark:to-gray-700 shadow-md rounded-lg p-8 border border-indigo-800">
         <header className="flex items-center mb-8">
           <img
             src={job.company_logo}
@@ -68,6 +70,7 @@ const JobDetails = () => {
           </div>
         </section>
 
+
         <footer className="border-t border-gray-300 dark:border-gray-600 pt-6 mt-6">
           <h2 className="text-xl font-semibold text-gray-800 dark:text-gray-200 mb-4">Contact Information</h2>
           <p className="text-gray-600 dark:text-gray-400">
@@ -81,6 +84,11 @@ const JobDetails = () => {
             .
           </p>
         </footer>
+        <button
+          onClick={() => { navigate(`/application/apply/${job._id}`) }}
+          className='w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 mt-6 rounded'>
+          Apply Now
+        </button>
       </div>
     </div>
   );
