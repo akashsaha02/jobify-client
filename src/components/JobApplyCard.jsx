@@ -18,26 +18,20 @@ const JobApplyCard = ({ app }) => {
                     {/* Applicant Info */}
                     <div className='flex items-center mb-4'>
                         <img
-                            src={app.applicantPhotoURL}
-                            alt={app.applicantName}
-                            className='w-12 h-12 rounded-full mr-4 border-2 border-gray-300'
+                            src={jobDetails.company_logo}
+                            alt={jobDetails.company}
+                            className='w-16 h-16 rounded mr-4 shadow p-2'
                         />
                         <div>
                             <h2 className='text-lg font-bold text-gray-800 dark:text-gray-100'>
-                                {app.applicantName}
+                                {jobDetails.company}
                             </h2>
                             <p className='text-sm text-gray-500 dark:text-gray-400'>
-                                {app.applicantEmail}
+                                {jobDetails.title}
                             </p>
                         </div>
                     </div>
-                    {/* Job Details */}
-                    <div className='mb-4'>
-                        <h3 className='text-lg font-semibold text-gray-800 dark:text-gray-100'>
-                            {jobDetails.title} at {jobDetails.company}
-                        </h3>
-                        <p className='text-gray-700 dark:text-gray-300'>{jobDetails.location}</p>
-                    </div>
+                    
                     {/* Application Details */}
                     <div>
                         <p className='text-gray-700 dark:text-gray-300 mb-2'>
@@ -49,7 +43,7 @@ const JobApplyCard = ({ app }) => {
                         <p className='text-gray-700 dark:text-gray-300 mb-2'>
                             <span className='font-medium'>Status:</span>{' '}
                             <span
-                                className={`inline-block px-2 py-1 rounded-full text-sm text-white ${app.application.status === 'pending'
+                                className={`inline-block px-2 py-1 rounded text-sm text-white ${app.application.status === 'pending'
                                     ? 'bg-yellow-500'
                                     : app.application.status === 'approved'
                                         ? 'bg-green-500'
